@@ -7,7 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Added 
+## [0.1.1] - 2020-03-17
+
+### Updated
+
+- Increment version for testing updates.
 
 ## [0.1.0] - 2020-03-17
 
@@ -15,5 +19,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Add initial version.
 
-[Unreleased]: https://github.com/giantswarm/test-app/tree/master
-[0.1.0]: https://github.com/giantswarm/architect-orb/releases/tag/v0.1.0
+[Unreleased]: https://github.com/giantswarm/test-app/compare/v0.1.1...HEAD
+[0.1.1]: https://github.com/giantswarm/test-app/compare/v0.1.0...v0.1.1
+[0.1.0]: https://github.com/giantswarm/test-app/releases/tag/v0.1.0
