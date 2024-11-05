@@ -1,17 +1,21 @@
 version: 2.1
 orbs:
-  architect: giantswarm/architect@2.1.0
+  architect: giantswarm/architect@5.11.1
 
 workflows:
   build:
     jobs:
-      - architect/push-to-app-catalog:
-          context: architect
-          name: push-to-default-app-catalog
-          app_catalog: "default-catalog"
-          app_catalog_test: "default-test-catalog"
-          chart: "test-app"
-          filters:
+    - architect/push-to-app-catalog:
+        context: architect
+        name: push-to-default-app-catalog
+        app_catalog: default-catalog
+        app_catalog_test: default-test-catalog
+        chart: test-app
+        filters:
             # Trigger the job also on git tag.
-            tags:
-              only: /^v.*/
+          tags:
+            only: /^v.*/
+          branches:
+            ignore:
+            - main
+            - master
