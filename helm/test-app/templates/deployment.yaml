@@ -6,6 +6,7 @@ metadata:
   labels:
     app: {{ .Values.name }}
     giantswarm.io/service-type: "managed"
+    {{- include "labels.common" . | nindent 4 }}
 spec:
   replicas: {{ .Values.replicas }}
   selector:
