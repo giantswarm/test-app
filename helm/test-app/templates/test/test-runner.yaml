@@ -4,6 +4,7 @@ metadata:
   name: {{ .Values.name }}-test
   annotations:
     ignore-check.kube-linter.io/no-read-only-root-fs: "This deployment needs write access to root file system to copy artifacts."
+    ignore-check.kube-linter.io/run-as-non-root: "This is only for testing other apps."
     "helm.sh/hook": test
 spec:
   template:
@@ -36,7 +37,7 @@ spec:
             drop:
               - ALL
           privileged: false
-          runAsNonRoot: true
+          runAsNonRoot: false
           seccompProfile:
             type: RuntimeDefault
       containers:
@@ -64,7 +65,7 @@ spec:
             drop:
               - ALL
           privileged: false
-          runAsNonRoot: true
+          runAsNonRoot: false
           seccompProfile:
             type: RuntimeDefault
       volumes:
