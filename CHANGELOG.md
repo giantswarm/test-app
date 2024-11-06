@@ -7,9 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Migrated build system to `app-build-suite`.
+  - Made the app compliant with ABS imposed static rules.
+
+### Added
+
+- Added network policy support.
+
+### Removed
+
+- Removed PSP support.
+
 ## [0.1.2] - 2020-07-30
 
-## Updated
+### Updated
 
 - Add release automation.
 
