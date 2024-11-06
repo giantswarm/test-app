@@ -3,6 +3,8 @@ kind: Job
 metadata:
   name: {{ .Values.name }}-test
   annotations:
+    ignore-check.kube-linter.io/no-read-only-root-fs: "This deployment needs write access to root file system to copy artifacts."
+    ignore-check.kube-linter.io/run-as-non-root: "This is only for testing other apps."
     "helm.sh/hook": test
 spec:
   template:
@@ -22,6 +24,22 @@ spec:
         volumeMounts:
         - mountPath: /tools
           name: tools
+        resources:
+          requests:
+            cpu: 150m
+            memory: 200Mi
+          limits:
+            cpu: 250m
+            memory: 250Mi
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+              - ALL
+          privileged: false
+          runAsNonRoot: false
+          seccompProfile:
+            type: RuntimeDefault
       containers:
       - name: {{ .Values.name }}-test
         image: "{{ .Values.test.image.registry }}/{{ .Values.test.image.name }}:{{ .Values.test.image.tag }}"
@@ -33,6 +51,23 @@ spec:
           readOnly: true
         - mountPath: /tools
           name: tools
+        resources:
+          requests:
+            cpu: 150m
+            memory: 200Mi
+          limits:
+            cpu: 250m
+            memory: 250Mi
+        securityContext:
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
+          capabilities:
+            drop:
+              - ALL
+          privileged: false
+          runAsNonRoot: false
+          seccompProfile:
+            type: RuntimeDefault
       volumes:
       - name: tests
         configMap:
