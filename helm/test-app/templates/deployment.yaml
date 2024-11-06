@@ -38,17 +38,18 @@ spec:
         livenessProbe:
           httpGet:
             path: /healthz
-            port: {{ .Values.port }}
+            port: {{ .Values.portName }}
           initialDelaySeconds: 5
           timeoutSeconds: 5
         readinessProbe:
           httpGet:
             path: /healthz
-            port: {{ .Values.port }}
+            port: {{ .Values.portName }}
           initialDelaySeconds: 5
           timeoutSeconds: 5
         ports:
           - containerPort: {{ .Values.port }}
+            name: {{ .Values.portName }}
             protocol: TCP
         resources:
 {{ toYaml .Values.resources | indent 10 }}
