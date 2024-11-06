@@ -4,3 +4,5 @@ description: A Helm chart for a test app
 home: https://github.com/giantswarm/test-app
 name: test-app
 version: 0.1.2
+annotations:
+  application.giantswarm.io/team: "honeybadger"
