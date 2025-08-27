@@ -1,3 +1,3 @@
 # test-app
 
-A test app packaged as a Helm chart for testing App Catalog functionality.
+A test app for testing App Catalog functionality in App Platform component ATS tests.
