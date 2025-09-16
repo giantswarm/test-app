@@ -4,6 +4,6 @@ description: A Helm chart for a test app
 icon: https://s.giantswarm.io/app-icons/1/png/default-app-light.png
 home: https://github.com/giantswarm/test-app
 name: test-app
-version: 1.0.0
+version: 1.0.1
 annotations:
   application.giantswarm.io/team: "honeybadger"
