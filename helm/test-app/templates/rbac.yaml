@@ -66,7 +66,6 @@ rules:
   - watch
 - apiGroups:
   - autoscaling
-  attributeRestrictions: null
   resources:
   - horizontalpodautoscalers
   verbs:
