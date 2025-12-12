@@ -7,6 +7,7 @@ metadata:
     ignore-check.kube-linter.io/run-as-non-root: "This is only for testing other apps."
     "helm.sh/hook": test
 spec:
+  ttlSecondsAfterFinished: 3600
   template:
     spec:
       initContainers:
