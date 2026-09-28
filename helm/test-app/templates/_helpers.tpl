@@ -10,7 +10,7 @@ Expand the name of the chart.
 Create chart name and version as used by the chart label.
 */}}
 {{- define "chart" -}}
-{{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" -}}
+{{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimAll "-._" -}}
 {{- end -}}
 
 {{/*
@@ -19,7 +19,7 @@ Common labels
 {{- define "labels.common" -}}
 app: {{ include "name" . | quote }}
 {{ include "labels.selector" . }}
-application.giantswarm.io/branch: {{ .Chart.Version | replace "#" "-" | replace "/" "-" | replace "." "-" | trunc 63 | trimSuffix "-" | quote }}
+application.giantswarm.io/branch: {{ .Chart.Version | replace "#" "-" | replace "/" "-" | replace "." "-" | trunc 63 | trimAll "-._" | quote }}
 application.giantswarm.io/commit: {{ .Chart.Version | quote }}
 app.kubernetes.io/managed-by: {{ .Release.Service | quote }}
 application.giantswarm.io/team: {{ index .Chart.Annotations "io.giantswarm.application.team" | quote }}
