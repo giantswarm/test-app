@@ -6,7 +6,6 @@ metadata:
   annotations:
     ignore-check.kube-linter.io/run-as-non-root: "This is only for testing other apps."
   labels:
-    app: {{ .Values.name }}
     giantswarm.io/service-type: "managed"
     {{- include "labels.common" . | nindent 4 }}
 spec:
