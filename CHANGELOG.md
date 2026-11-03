@@ -13,7 +13,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- CI: architect orb 10.16.7, which pushes the chart to the git catalog with the architect GitHub App instead of the `catalogbot` account. A pre-release tag (`v1.2.3-rc.1`) now goes to the test catalog only, and the published chart version is posted as a pull request comment.
 - Migrate Chart.yaml annotations to new format as per https://docs.giantswarm.io/reference/platform-api/chart-metadata/
+
 ## [1.0.1] - 2025-09-16
 
 ### Removed
